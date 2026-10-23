@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat with Charisse S. Toriing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="sun"></div><div class="sea"></div></div>
+
+<main class="layout">
+  <aside class="profile" aria-label="Profile">
+    <div class="avatar">
+      <!-- Put your photo in this folder and name it chacha.jpg -->
+      <img src="chacha.jpg" alt="Photo of Charisse S. Toriing" onerror="this.remove();document.querySelector('.avatar').insertAdjacentHTML('beforeend','<b>CT</b>')">
+    </div>
+    <h1>Charisse S. Toriing</h1>
+    <p class="role">Information Technology student</p>
+    <ul class="meta">
+      <li>📍 Cebu City, PH</li>
+      <li>✉️ <a href="mailto:semblantecharisse69@gmail.com">semblantecharisse69@gmail.com</a></li>
+      <li>🎧 Music · 🎨 Design · 🎮 Games</li>
+    </ul>
+    <div class="curious">
+      <span>Questions asked</span>
+      <div class="meter"><i id="meterFill"></i></div>
+      <small id="meterTxt">0 of 5 topics explored</small>
+    </div>
+    <button class="btn ghost" id="copyBtn">Copy email</button>
+  </aside>
+
+  <section class="chat" aria-label="Chat with Charisse">
+    <header class="chat-head">
+      <span class="dot" aria-hidden="true"></span>
+      <div><strong>Charisse</strong><small>Online. Replies instantly.</small></div>
+    </header>
+    <div class="log" id="log" aria-live="polite"></div>
+    <div class="replies" id="replies" aria-label="Quick replies"></div>
+    <form class="composer" id="composer" autocomplete="off">
+      <input id="msg" type="text" placeholder="Or type: hobbies, skills, fun fact, game..." aria-label="Type a message">
+      <button class="btn" type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<div class="overlay" id="arcade" hidden role="dialog" aria-modal="true" aria-label="Games">
+  <div class="panel">
+    <header class="panel-head"><strong>Mini arcade</strong><button class="x" id="closeArcade" aria-label="Close games">×</button></header>
+    <div class="tabs" role="tablist" id="tabs">
+      <button class="btn tab" role="tab" aria-selected="true" data-g="g1">⭐ Stars</button>
+      <button class="btn tab" role="tab" aria-selected="false" data-g="g2">🧩 Memory</button>
+      <button class="btn tab" role="tab" aria-selected="false" data-g="g3">✊ RPS</button>
+    </div>
+
+    <div class="game show" id="g1">
+      <div class="gstats"><span class="pill">Score <b id="sc">0</b></span><span class="pill">Time <b id="tm">15</b>s</span><span class="pill">Best <b id="bs">0</b></span><button class="btn hot" id="startStar">Start</button></div>
+      <div class="arena" id="arena"><div class="amsg" id="arenaMsg">Press Start, then tap the stars for 15 seconds.</div></div>
+    </div>
+
+    <div class="game" id="g2">
+      <div class="gstats"><span class="pill">Moves <b id="mv">0</b></span><span class="pill">Best <b id="mbest">-</b></span><button class="btn hot" id="resetMem">New game</button></div>
+      <div class="mem" id="mem"></div>
+      <p id="memOut" class="note" aria-live="polite">Flip two cards to find pairs.</p>
+    </div>
+
+    <div class="game" id="g3">
+      <div class="gstats"><span class="pill">You <b id="rw">0</b></span><span class="pill">Me <b id="rl">0</b></span><span class="pill">Ties <b id="rt">0</b></span></div>
+      <div class="rps" id="rps">
+        <button class="btn" data-c="rock" aria-label="Rock">✊</button>
+        <button class="btn" data-c="paper" aria-label="Paper">✋</button>
+        <button class="btn" data-c="scissors" aria-label="Scissors">✌️</button>
+      </div>
+      <div class="note box" id="rpsOut" aria-live="polite">Pick one to play against me.</div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<canvas id="fx"></canvas>
+<script src="script.js"></script>
+</body>
+</html>
